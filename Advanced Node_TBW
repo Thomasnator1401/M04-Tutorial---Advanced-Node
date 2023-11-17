@@ -1,3 +1,17 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bdHE2wHT-gQ?si=YHxCjKGuCuwMUjke" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bdHE2wHT-gQ?si=aEfjBWBLAd4ABHQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Lr9WUkeYSA8?si=92agU7n6dqEd-Z_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    console.log(req.url, req.method);
+
+    // set header content type
+    res.setHeader('Content-Type', 'text/html');
+    
+    res.write('<head><link rel="stylesheet" href="#"></head>')
+    res.write('<p>hello, ninjas</p>');
+    res.write('<p>hello again, ninjas</p>');
+    res.end();
+});
+
+server.listen(3000, 'localhost', () => {
+    console.log('listening for requests on port 3000');
+});
